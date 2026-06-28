@@ -1,0 +1,6 @@
+# Microphone recording support.
+numpy>=1.24
+sounddevice>=0.4.6
+
+# Real ASR backend.
+faster-whisper>=1.0.0

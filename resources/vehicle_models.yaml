@@ -1,0 +1,300 @@
+models:
+  - canonical_name: "EC VAN"
+    vehicle_type: car
+    aliases:
+      - "ec van"
+      - "ecvan"
+  - canonical_name: "FADIL"
+    vehicle_type: car
+    aliases:
+      - "fadil"
+  - canonical_name: "Ebus"
+    vehicle_type: car
+    aliases:
+      - "ebus"
+      - "e bus"
+  - canonical_name: "Green Bus 10M"
+    vehicle_type: car
+    aliases:
+      - "green bus 10m"
+      - "green bus 10 m"
+      - "green bus mười mét"
+  - canonical_name: "Green Bus 6M"
+    vehicle_type: car
+    aliases:
+      - "green bus 6m"
+      - "green bus 6 m"
+      - "green bus sáu mét"
+  - canonical_name: "Green Bus 8M"
+    vehicle_type: car
+    aliases:
+      - "green bus 8m"
+      - "green bus 8 m"
+      - "green bus tám mét"
+  - canonical_name: "LacHong / Lạc Hồng"
+    vehicle_type: car
+    aliases:
+      - "lac hong"
+      - "lạc hồng"
+      - "lachong"
+  - canonical_name: "LUX A2.0"
+    vehicle_type: car
+    aliases:
+      - "lux a2.0"
+      - "lux a 2.0"
+      - "lux a hai chấm không"
+  - canonical_name: "LUX SA2.0"
+    vehicle_type: car
+    aliases:
+      - "lux sa2.0"
+      - "lux sa 2.0"
+      - "lux s a 2.0"
+  - canonical_name: "LUX V8 / President"
+    vehicle_type: car
+    aliases:
+      - "lux v8"
+      - "lux v 8"
+      - "president"
+      - "lux president"
+  - canonical_name: "Minio Green"
+    vehicle_type: car
+    aliases:
+      - "minio green"
+      - "minio"
+  - canonical_name: "Herio Green"
+    vehicle_type: car
+    aliases:
+      - "herio green"
+      - "herio"
+  - canonical_name: "Nerio Green"
+    vehicle_type: car
+    aliases:
+      - "nerio green"
+      - "nerio"
+  - canonical_name: "Limo Green"
+    vehicle_type: car
+    aliases:
+      - "limo green"
+      - "limo"
+  - canonical_name: "VF 3"
+    vehicle_type: car
+    aliases:
+      - "vf3"
+      - "vf 3"
+      - "v f 3"
+      - "vê ép ba"
+      - "ép ba"
+  - canonical_name: "VF 5"
+    vehicle_type: car
+    aliases:
+      - "vf5"
+      - "vf 5"
+      - "v f 5"
+      - "vê ép năm"
+      - "ép năm"
+  - canonical_name: "VF 6"
+    vehicle_type: car
+    aliases:
+      - "vf6"
+      - "vf 6"
+      - "v f 6"
+      - "vê ép sáu"
+      - "ép sáu"
+  - canonical_name: "VF 7"
+    vehicle_type: car
+    aliases:
+      - "vf7"
+      - "vf 7"
+      - "v f 7"
+      - "vê ép bảy"
+      - "ép bảy"
+  - canonical_name: "VF 8"
+    vehicle_type: car
+    aliases:
+      - "vf8"
+      - "vf 8"
+      - "v8"
+      - "v 8"
+      - "v f 8"
+      - "vê ép tám"
+      - "ép tám"
+  - canonical_name: "VF 9"
+    vehicle_type: car
+    aliases:
+      - "vf9"
+      - "vf 9"
+      - "v f 9"
+      - "vê ép chín"
+      - "ép chín"
+  - canonical_name: "VF MPV 7"
+    vehicle_type: car
+    aliases:
+      - "vf mpv 7"
+      - "vf m p v 7"
+      - "mpv 7"
+  - canonical_name: "VF e34"
+    vehicle_type: car
+    aliases:
+      - "vfe34"
+      - "vf e34"
+      - "vf e 34"
+      - "vê ép e ba tư"
+  - canonical_name: "VF Wild"
+    vehicle_type: car
+    aliases:
+      - "vf wild"
+      - "v f wild"
+  - canonical_name: "Drgn Fly"
+    vehicle_type: motorbike
+    aliases:
+      - "drgn fly"
+      - "dragon fly"
+  - canonical_name: "Evo Grand"
+    vehicle_type: motorbike
+    aliases:
+      - "evo grand"
+  - canonical_name: "Evo Grand Lite"
+    vehicle_type: motorbike
+    aliases:
+      - "evo grand lite"
+  - canonical_name: "Evo lite Neo"
+    vehicle_type: motorbike
+    aliases:
+      - "evo lite neo"
+  - canonical_name: "Evo Neo"
+    vehicle_type: motorbike
+    aliases:
+      - "evo neo"
+  - canonical_name: "EVO200"
+    vehicle_type: motorbike
+    aliases:
+      - "evo200"
+      - "evo 200"
+      - "evo hai trăm"
+  - canonical_name: "EVO200 LITE"
+    vehicle_type: motorbike
+    aliases:
+      - "evo200 lite"
+      - "evo 200 lite"
+      - "evo hai trăm lite"
+  - canonical_name: "Feliz"
+    vehicle_type: motorbike
+    aliases:
+      - "feliz"
+  - canonical_name: "Feliz 2025"
+    vehicle_type: motorbike
+    aliases:
+      - "feliz 2025"
+  - canonical_name: "FELIZ II"
+    vehicle_type: motorbike
+    aliases:
+      - "feliz ii"
+      - "feliz 2"
+      - "feliz hai"
+  - canonical_name: "Feliz Lite"
+    vehicle_type: motorbike
+    aliases:
+      - "feliz lite"
+  - canonical_name: "Feliz Neo"
+    vehicle_type: motorbike
+    aliases:
+      - "feliz neo"
+  - canonical_name: "FELIZ S"
+    vehicle_type: motorbike
+    aliases:
+      - "feliz s"
+      - "feliz ét"
+  - canonical_name: "FLAZZ"
+    vehicle_type: motorbike
+    aliases:
+      - "flazz"
+  - canonical_name: "Impes"
+    vehicle_type: motorbike
+    aliases:
+      - "impes"
+  - canonical_name: "Klara A1"
+    vehicle_type: motorbike
+    aliases:
+      - "klara a1"
+      - "klara a 1"
+  - canonical_name: "Klara A2"
+    vehicle_type: motorbike
+    aliases:
+      - "klara a2"
+      - "klara a 2"
+  - canonical_name: "Klara Neo"
+    vehicle_type: motorbike
+    aliases:
+      - "klara neo"
+  - canonical_name: "Klara S"
+    vehicle_type: motorbike
+    aliases:
+      - "klara s"
+  - canonical_name: "KLARA S - 2022"
+    vehicle_type: motorbike
+    aliases:
+      - "klara s 2022"
+      - "klara s đời 2022"
+  - canonical_name: "KLARA S2"
+    vehicle_type: motorbike
+    aliases:
+      - "klara s2"
+      - "klara s 2"
+      - "klara ét hai"
+  - canonical_name: "Ludo"
+    vehicle_type: motorbike
+    aliases:
+      - "ludo"
+  - canonical_name: "Motio"
+    vehicle_type: motorbike
+    aliases:
+      - "motio"
+  - canonical_name: "TEMPEST"
+    vehicle_type: motorbike
+    aliases:
+      - "tempest"
+  - canonical_name: "Theon"
+    vehicle_type: motorbike
+    aliases:
+      - "theon"
+  - canonical_name: "THEON - 1"
+    vehicle_type: motorbike
+    aliases:
+      - "theon 1"
+      - "theon một"
+  - canonical_name: "THEON S"
+    vehicle_type: motorbike
+    aliases:
+      - "theon s"
+  - canonical_name: "Vento"
+    vehicle_type: motorbike
+    aliases:
+      - "vento"
+  - canonical_name: "Vento Neo"
+    vehicle_type: motorbike
+    aliases:
+      - "vento neo"
+  - canonical_name: "VENTO S"
+    vehicle_type: motorbike
+    aliases:
+      - "vento s"
+      - "vento ét"
+  - canonical_name: "VeroX"
+    vehicle_type: motorbike
+    aliases:
+      - "verox"
+      - "vero x"
+  - canonical_name: "VeroX Max"
+    vehicle_type: motorbike
+    aliases:
+      - "verox max"
+      - "vero x max"
+  - canonical_name: "VIPER"
+    vehicle_type: motorbike
+    aliases:
+      - "viper"
+  - canonical_name: "ZGOO"
+    vehicle_type: motorbike
+    aliases:
+      - "zgoo"
+      - "z goo"

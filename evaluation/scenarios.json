@@ -1,0 +1,334 @@
+[
+  {
+    "id": "g1_explicit_rescue_multifield",
+    "description": "Khách yêu cầu cứu hộ và cung cấp nhiều field.",
+    "turns": [
+      {
+        "user": "Xe tôi hết pin, tôi cần cứu hộ. Tôi là Nguyễn Văn Nam, số 0901234567, xe VF8 ở đường Láng Hà Nội, biển số 30A-12345, odo 25000 km",
+        "expected": {
+          "category": "G_1",
+          "routing_status": "confirmed",
+          "next_action": "CONFIRM_COLLECTED_INFORMATION",
+          "fields": {
+            "full_name": "Nguyễn Văn Nam",
+            "phone": "0901234567",
+            "vehicle_model": "VF 8",
+            "vehicle_type": "car",
+            "license_plate_vin": "30A-12345",
+            "current_odo": 25000
+          },
+          "confirmed_fields_contains": ["phone", "license_plate_vin", "current_odo"],
+          "emergency": false,
+          "tags": ["vehicle_alias"]
+        }
+      }
+    ],
+    "final_expected": {
+      "category": "G_1",
+      "fields": {
+        "phone": "0901234567",
+        "vehicle_model": "VF 8",
+        "vehicle_type": "car",
+        "license_plate_vin": "30A-12345"
+      },
+      "provided_fields": ["full_name", "phone", "vehicle_model", "vehicle_type", "license_plate_vin", "current_odo", "current_location", "city_name", "vehicle_condition"]
+    },
+    "tags": ["G_1", "normal", "vehicle_alias"]
+  },
+  {
+    "id": "g1_ambiguous_then_rescue",
+    "description": "Symptom-only rồi khách xác nhận cứu hộ.",
+    "turns": [
+      {
+        "user": "Xe tôi hết pin",
+        "expected": {
+          "category": null,
+          "routing_status": "needs_clarification",
+          "next_action": "ASK_INTENT_CLARIFICATION",
+          "pending_field": "rescue_needed",
+          "emergency": false,
+          "tags": ["ambiguous_intent"]
+        }
+      },
+      {
+        "user": "Có, tôi cần cứu hộ",
+        "expected": {
+          "category": "G_1",
+          "routing_status": "confirmed",
+          "next_action": "ASK_MISSING_FIELD"
+        }
+      }
+    ],
+    "final_expected": {"category": "G_1"},
+    "tags": ["G_1", "normal", "ambiguous_intent", "routing_after_clarification"]
+  },
+  {
+    "id": "g2_car_repair_vf8",
+    "description": "Ô tô VF8 đặt lịch kiểm tra.",
+    "turns": [
+      {
+        "user": "Xe VF8 bị lỗi, tôi muốn đặt lịch kiểm tra",
+        "expected": {
+          "category": "G_2",
+          "routing_status": "confirmed",
+          "next_action": "ASK_MISSING_FIELD",
+          "fields": {"vehicle_model": "VF 8"}
+        }
+      }
+    ],
+    "final_expected": {"category": "G_2", "fields": {"vehicle_model": "VF 8"}, "provided_fields": ["vehicle_model", "vehicle_condition"]},
+    "tags": ["G_2", "normal", "vehicle_alias"]
+  },
+  {
+    "id": "g2_ambiguous_then_repair",
+    "description": "Khách từ chối cứu hộ rồi hỏi bảo hành.",
+    "turns": [
+      {
+        "user": "Xe tôi không khởi động",
+        "expected": {
+          "category": null,
+          "routing_status": "needs_clarification",
+          "next_action": "ASK_INTENT_CLARIFICATION",
+          "tags": ["ambiguous_intent"]
+        }
+      },
+      {
+        "user": "Không cần cứu hộ, tôi muốn hỏi lỗi này có được bảo hành không",
+        "expected": {
+          "category": "G_2",
+          "routing_status": "confirmed"
+        }
+      }
+    ],
+    "final_expected": {"category": "G_2"},
+    "tags": ["G_2", "normal", "routing_after_clarification"]
+  },
+  {
+    "id": "g3_order_status_multifield",
+    "description": "Khách hỏi trạng thái đơn hàng với đủ thông tin.",
+    "turns": [
+      {
+        "user": "Tôi là Nguyễn Văn Nam, số 0901234567, mã đơn ABC123, khách hàng cá nhân, bao giờ đơn xe được giao?",
+        "expected": {
+          "category": "G_3",
+          "routing_status": "confirmed",
+          "next_action": "CONFIRM_COLLECTED_INFORMATION",
+          "fields": {
+            "full_name": "Nguyễn Văn Nam",
+            "order_phone": "0901234567",
+            "order_code_dealer": "ABC123",
+            "customer_type": "personal"
+          }
+        }
+      }
+    ],
+    "final_expected": {
+      "category": "G_3",
+      "fields": {"order_phone": "0901234567", "order_code_dealer": "ABC123", "customer_type": "personal"},
+      "provided_fields": ["full_name", "order_phone", "order_code_dealer", "customer_type"]
+    },
+    "tags": ["G_3", "normal"]
+  },
+  {
+    "id": "g3_dealer_delivery",
+    "description": "Khách hỏi giao xe qua đại lý.",
+    "turns": [
+      {
+        "user": "Tôi muốn kiểm tra đơn xe ở đại lý Mỹ Đình, số 0901234567, khách hàng cá nhân",
+        "expected": {
+          "category": "G_3",
+          "routing_status": "confirmed",
+          "next_action": "ASK_MISSING_FIELD",
+          "fields": {"order_phone": "0901234567", "customer_type": "personal"}
+        }
+      }
+    ],
+    "final_expected": {"category": "G_3", "fields": {"order_phone": "0901234567", "customer_type": "personal"}, "provided_fields": ["order_phone", "order_code_dealer", "customer_type"]},
+    "tags": ["G_3", "normal"]
+  },
+  {
+    "id": "g4_feliz_warranty",
+    "description": "Xe máy Feliz cần bảo hành.",
+    "turns": [
+      {
+        "user": "Xe Feliz cần bảo hành, tôi là An, số 0901234567, biển số 29B-12345, ở Cầu Giấy, xe bị lỗi pin",
+        "expected": {
+          "category": "G_4",
+          "routing_status": "confirmed",
+          "fields": {"vehicle_line": "Feliz", "phone": "0901234567", "license_plate_vin": "29B-12345"}
+        }
+      }
+    ],
+    "final_expected": {"category": "G_4", "fields": {"vehicle_line": "Feliz", "phone": "0901234567"}, "provided_fields": ["full_name", "vehicle_line", "phone", "license_plate_vin", "current_location", "vehicle_condition"]},
+    "tags": ["G_4", "normal"]
+  },
+  {
+    "id": "g4_feliz_alias_two",
+    "description": "Alias Feliz hai được chuẩn hóa.",
+    "turns": [
+      {
+        "user": "Xe Feliz hai cần bảo hành, số 0901234567",
+        "expected": {
+          "category": "G_4",
+          "routing_status": "confirmed",
+          "fields": {"vehicle_line": "FELIZ II", "phone": "0901234567"},
+          "tags": ["vehicle_alias"]
+        }
+      }
+    ],
+    "final_expected": {"category": "G_4", "fields": {"vehicle_line": "FELIZ II", "phone": "0901234567"}, "provided_fields": ["vehicle_line", "phone"]},
+    "tags": ["G_4", "normal", "vehicle_alias"]
+  },
+  {
+    "id": "g5_screen_restart",
+    "description": "Hỗ trợ từ xa lỗi màn hình.",
+    "turns": [
+      {
+        "user": "Hướng dẫn tôi khởi động lại màn hình, tôi là Nam, số 0901234567, xe VF8, VIN LJSKA123456789012, xe bị treo màn hình",
+        "expected": {
+          "category": "G_5",
+          "routing_status": "confirmed",
+          "next_action": "PROVIDE_REMOTE_STEP",
+          "fields": {"vehicle_line": "VF 8", "phone": "0901234567"}
+        }
+      }
+    ],
+    "final_expected": {"category": "G_5", "fields": {"vehicle_line": "VF 8", "phone": "0901234567"}, "provided_fields": ["full_name", "phone", "vehicle_line", "license_plate_vin", "vehicle_condition_details"]},
+    "tags": ["G_5", "normal", "vehicle_alias"]
+  },
+  {
+    "id": "g5_app_connection",
+    "description": "Hỗ trợ từ xa lỗi app/kết nối.",
+    "turns": [
+      {
+        "user": "Hướng dẫn tôi kiểm tra app không kết nối với xe VF 8, số 0901234567",
+        "expected": {
+          "category": "G_5",
+          "routing_status": "confirmed",
+          "next_action": "ASK_MISSING_FIELD",
+          "fields": {"vehicle_line": "VF 8", "phone": "0901234567"}
+        }
+      }
+    ],
+    "final_expected": {"category": "G_5", "fields": {"vehicle_line": "VF 8", "phone": "0901234567"}, "provided_fields": ["vehicle_line", "phone", "vehicle_condition_details"]},
+    "tags": ["G_5", "normal"]
+  },
+  {
+    "id": "exception_missing_field",
+    "description": "Category confirmed nhưng thiếu required field.",
+    "turns": [
+      {
+        "user": "Xe tôi hết pin, tôi cần cứu hộ",
+        "expected": {"category": "G_1", "next_action": "ASK_MISSING_FIELD", "emergency": false}
+      }
+    ],
+    "final_expected": {"category": "G_1"},
+    "tags": ["G_1", "exception", "missing_field"]
+  },
+  {
+    "id": "exception_correction_model",
+    "description": "Khách sửa model VF8 thành VF9.",
+    "turns": [
+      {"user": "Xe VF8 bị lỗi, tôi muốn đặt lịch kiểm tra", "expected": {"category": "G_2"}},
+      {
+        "user": "Không phải VF8, xe của tôi là VF9",
+        "expected": {"category": "G_2", "next_action": "ACKNOWLEDGE_CORRECTION", "fields": {"vehicle_model": "VF 9"}}
+      }
+    ],
+    "final_expected": {"category": "G_2", "fields": {"vehicle_model": "VF 9"}, "provided_fields": ["vehicle_model", "vehicle_condition"]},
+    "tags": ["G_2", "exception", "correction"]
+  },
+  {
+    "id": "exception_ambiguous_intent",
+    "description": "Symptom-only không route sớm.",
+    "turns": [
+      {"user": "Xe tôi hết pin", "expected": {"category": null, "next_action": "ASK_INTENT_CLARIFICATION", "tags": ["ambiguous_intent"]}}
+    ],
+    "final_expected": {"category": null},
+    "tags": ["exception", "ambiguous_intent"]
+  },
+  {
+    "id": "exception_out_of_scope",
+    "description": "Câu hỏi ngoài phạm vi.",
+    "turns": [
+      {"user": "Tôi muốn mua điện thoại", "expected": {"next_action": "TRANSFER_TO_HUMAN", "transfer_to_human": true, "handoff_reason": "out_of_scope"}}
+    ],
+    "final_expected": {"category": null},
+    "tags": ["exception", "out_of_scope"]
+  },
+  {
+    "id": "exception_unclear_phone",
+    "description": "Số điện thoại không rõ phải confirm.",
+    "turns": [
+      {"user": "Xe tôi hết pin, tôi cần cứu hộ, số điện thoại không rõ", "expected": {"category": "G_1", "next_action": "CONFIRM_UNCLEAR_FIELD", "pending_field": "phone", "unconfirmed_fields_contains": ["phone"]}}
+    ],
+    "final_expected": {"category": "G_1"},
+    "tags": ["G_1", "exception", "unclear_field"]
+  },
+  {
+    "id": "exception_emergency",
+    "description": "Tai nạn có người bị thương.",
+    "turns": [
+      {"user": "Xe tai nạn, có người bị thương", "expected": {"next_action": "HANDLE_EMERGENCY", "emergency": true, "transfer_to_human": true}}
+    ],
+    "final_expected": {"category": null},
+    "tags": ["exception", "emergency"]
+  },
+  {
+    "id": "exception_two_failed_turns",
+    "description": "Hai lượt không hiểu thì handoff.",
+    "turns": [
+      {"user": "", "metadata": {"asr_confidence": 0.1}, "expected": {"next_action": "REPEAT_OR_REPHRASE"}},
+      {"user": "", "metadata": {"asr_confidence": 0.1}, "expected": {"next_action": "TRANSFER_TO_HUMAN", "transfer_to_human": true, "handoff_reason": "failed_understanding"}}
+    ],
+    "final_expected": {"category": null},
+    "tags": ["exception", "failed_turns"]
+  },
+  {
+    "id": "exception_hangup_partial",
+    "description": "Khách hang-up giữa cuộc gọi.",
+    "turns": [
+      {"user": "", "metadata": {"event_type": "hangup"}, "expected": {"next_action": "END_PARTIAL_CALL", "status": "partial", "should_end_call": true}}
+    ],
+    "final_expected": {"category": null},
+    "tags": ["exception", "hangup"]
+  },
+  {
+    "id": "exception_unknown_model",
+    "description": "Model ngoài catalog không bị map.",
+    "turns": [
+      {"user": "Xe Zumo cần bảo hành", "expected": {"category": null, "next_action": "CONFIRM_UNCLEAR_FIELD", "pending_field": null, "tags": ["unknown_model"]}}
+    ],
+    "final_expected": {"category": null, "provided_fields": []},
+    "tags": ["exception", "unknown_model", "vehicle"]
+  },
+  {
+    "id": "vehicle_green_bus_alias",
+    "description": "Alias Green Bus tám mét.",
+    "turns": [
+      {"user": "Xe Green Bus tám mét bị lỗi, tôi muốn đặt lịch kiểm tra", "expected": {"category": "G_2", "fields": {"vehicle_model": "Green Bus 8M"}, "tags": ["vehicle_alias"]}}
+    ],
+    "final_expected": {"category": "G_2", "fields": {"vehicle_model": "Green Bus 8M"}, "provided_fields": ["vehicle_model", "vehicle_condition"]},
+    "tags": ["G_2", "normal", "vehicle_alias"]
+  },
+  {
+    "id": "no_reask_confirmed_phone",
+    "description": "Không hỏi lại phone đã confirmed.",
+    "initial_state": {
+      "session_id": "no_reask_confirmed_phone",
+      "category": "G_1",
+      "routing_status": "confirmed",
+      "fields": {"phone": "0901234567"},
+      "field_states": {"phone": {"value": "0901234567", "status": "confirmed", "source_turn": 1, "confidence": 0.95, "corrected": false}},
+      "confirmed_fields": ["phone"],
+      "missing_fields": ["license_plate_vin"],
+      "pending_field": "license_plate_vin"
+    },
+    "turns": [
+      {"user": "Xe tôi ở đường Láng", "expected": {"category": "G_1", "next_action": "ASK_MISSING_FIELD"}}
+    ],
+    "final_expected": {"category": "G_1", "fields": {"phone": "0901234567"}, "provided_fields": ["phone", "current_location"]},
+    "no_reask_field": "phone",
+    "tags": ["G_1", "exception", "no_reask"]
+  }
+]

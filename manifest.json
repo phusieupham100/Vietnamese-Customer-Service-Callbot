@@ -1,0 +1,20 @@
+{
+  "package": "callbot_codex_docs_final",
+  "version": "1.1",
+  "updated_for": "vehicle model recognition catalog",
+  "markdown_files": [
+    "AGENTS.md",
+    "docs/00_PROJECT_OVERVIEW.md",
+    "docs/01_SHARED_CONTRACTS.md",
+    "docs/02_CATEGORY_SCHEMAS.md",
+    "docs/03A_VEHICLE_MODEL_RECOGNITION.md",
+    "docs/03_INTENT_ROUTING.md",
+    "docs/04_DIALOGUE_STATE_AND_POLICY.md",
+    "docs/05_EXCEPTION_HANDLING.md",
+    "docs/06_EVALUATION_SPEC.md",
+    "docs/07_VOICE_PIPELINE_INTERFACE.md",
+    "docs/08_IMPLEMENTATION_PLAN.md",
+    "docs/09_CODEX_EXECUTION_GUIDE.md",
+    "docs/README.md"
+  ]
+}
